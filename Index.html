@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Playground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Playground 🎮</h1>
+        <nav>
+            <ul>
+                <li><a href="#events" class="active" data-section="events">Event Handling</a></li>
+                <li><a href="#interactive" data-section="interactive">Interactive Components</a></li>
+                <li><a href="#form" data-section="form">Form Validation</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- EVENT HANDLING SECTION -->
+        <section id="events" class="section active">
+            <h2>Event Handling</h2>
+            <div class="card-container">
+                <!-- Mouse Events Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Mouse Events</h3>
+                        <p>Track mouse position and clicks</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="event-demo">
+                            <p>Current Position:</p>
+                            <div id="mouse-position" class="event-output">X: 0, Y: 0</div>
+                        </div>
+                        <div class="event-demo">
+                            <p>Click Counter:</p>
+                            <div class="event-action">
+                                <div id="click-counter" class="event-output">0</div>
+                                <button id="click-button">Click Me</button>
+                            </div>
+                        </div>
+                        <div class="event-demo">
+                            <p>Hover Effect:</p>
+                            <div id="hover-element" class="hover-box">
+                                Hover over me!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keyboard Events Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Keyboard Events</h3>
+                        <p>Detect keyboard input</p>
+                    </div>
+                    <div class="card-content">
+                        <p>Press any key on your keyboard:</p>
+                        <div id="key-display" class="event-output large-output">?</div>
+                        <p class="hint">Last key pressed</p>
+                    </div>
+                </div>
+
+                <!-- Timer Events Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Timer Events</h3>
+                        <p>Working with intervals and timeouts</p>
+                    </div>
+                    <div class="card-content">
+                        <p>Time elapsed:</p>
+                        <div id="timer-display" class="event-output large-output">0s</div>
+                        <div class="button-group">
+                            <button id="reset-timer">Reset Timer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secret Actions Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Secret Actions</h3>
+                        <p>Try double-click or long press</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="button-group">
+                            <button id="double-click-button">Double-Click Me</button>
+                            <button id="long-press-button">Press and Hold Me</button>
+                        </div>
+                        <div id="secret-message" class="secret-message hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE COMPONENTS SECTION -->
+        <section id="interactive" class="section">
+            <h2>Interactive Components</h2>
+            <div class="card-container">
+                <!-- Color/Text Changing Button Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Color/Text Changing Button</h3>
+                        <p>Click to change appearance</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="centered">
+                            <button id="change-button" class="change-button">Click to Change</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toggle Switch Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Toggle Switch</h3>
+                        <p>Click to toggle state</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="toggle-container">
+                            <label for="toggle">Toggle Mode</label>
+                            <div class="toggle-wrapper">
+                                <label class="switch">
+                                    <input type="checkbox" id="toggle">
+                                    <span class="slider round"></span>
+                                </label>
+                                <span id="toggle-status">OFF</span>
+                            </div>
+                        </div>
+                        <div id="toggle-display" class="toggle-display">
+                            Feature is disabled
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Gallery Card -->
+                <div class="card wide-card">
+                    <div class="card-header">
+                        <h3>Image Gallery</h3>
+                        <p>Navigate through images</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="gallery-container">
+                            <div id="gallery" class="gallery">
+                                <img src="pexels1.jpg" alt="Gallery image 1" class="gallery-image active">
+                                <img src="pexels-thephotokai-31789260.jpg" alt="Gallery image 2" class="gallery-image">
+                                <img src="pexels3.jpg" alt="Gallery image 3" class="gallery-image">
+                                <img src="pexels4.jpg" alt="Gallery image 4" class="gallery-image">
+                                <img src="pexels5.jpg" alt="Gallery image 5" class="gallery-image">
+                            </div>
+                            <button id="prev-button" class="gallery-nav prev">&lt;</button>
+                            <button id="next-button" class="gallery-nav next">&gt;</button>
+                        </div>
+                        <div id="gallery-dots" class="gallery-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Accordion Component Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Accordion Component</h3>
+                        <p>Click to expand/collapse sections</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-header">Section 1</button>
+                                <div class="accordion-content">
+                                    <p>This is the content for section 1. Accordions are great for organizing content into collapsible sections.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-header">Section 2</button>
+                                <div class="accordion-content">
+                                    <p>This is the content for section 2. Click on a section header to expand or collapse it.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-header">Section 3</button>
+                                <div class="accordion-content">
+                                    <p>This is the content for section 3. Accordions help save space while keeping information accessible.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canvas Drawing Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Canvas Drawing</h3>
+                        <p>Click and drag to draw</p>
+                    </div>
+                    <div class="card-content">
+                        <canvas id="drawing-canvas" width="300" height="200"></canvas>
+                        <div class="button-group">
+                            <button id="clear-canvas">Clear Canvas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORM VALIDATION SECTION -->
+        <section id="form" class="section">
+            <h2>Form Validation</h2>
+            <div class="card wide-card">
+                <div class="card-header">
+                    <h3>Form Validation</h3>
+                    <p>Complete the form with valid information</p>
+                </div>
+                <div class="card-content">
+                    <div id="form-success" class="success-message hidden">
+                        <div class="success-icon">✓</div>
+                        <h3>Form Submitted Successfully!</h3>
+                        <p id="success-message">Thank you for your submission.</p>
+                    </div>
+                    <form id="validation-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" placeholder="Enter your username">
+                            <span class="error-message" id="username-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email">
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+                        
+                        <div class="form-group form-row">
+                            <div class="form-col">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" placeholder="Enter your password">
+                                <div id="password-strength-container" class="password-strength-container hidden">
+                                    <div class="strength-info">
+                                        <span>Password Strength:</span>
+                                        <span id="strength-text"></span>
+                                    </div>
+                                    <div class="strength-meter-container">
+                                        <div id="strength-meter" class="strength-meter"></div>
+                                    </div>
+                                    <ul class="password-requirements">
+                                        <li id="req-length">At least 8 characters</li>
+                                        <li id="req-uppercase">At least one uppercase letter</li>
+                                        <li id="req-number">At least one number</li>
+                                        <li id="req-special">At least one special character</li>
+                                    </ul>
+                                </div>
+                                <span class="error-message" id="password-error"></span>
+                            </div>
+                            
+                            <div class="form-col">
+                                <label for="confirm-password">Confirm Password</label>
+                                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password">
+                                <span class="error-message" id="confirm-password-error"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message (Optional)</label>
+                            <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+                            <span class="error-message" id="message-error"></span>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Submit Form</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add some space at the bottom for scroll demonstration -->
+    <div style="height: 300px;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
